@@ -1,0 +1,17 @@
+### 1.ubuntu和kali双系统安装
+    不建议用虚拟机直接安装，会有各种奇奇怪怪的错误。我之前为了省掉30元买u盘的费用，在vbox上对着自己的Nvme M.2移动硬盘搞了约十小时，最后还是买了u盘 :(
+    买了u盘后，可以使用rusus(https://rufus.ie/zh/)烧录系统镜像到u盘后安装（详情请自行搜索）
+    建议先装ubuntu, 再装kali
+    ***分区结构示例（以500G硬盘为例）
+        120GB ubuntu 根
+        1GB EFI分区（如果安装程序没出错，ubuntu根在手动划分之后这个分区会自动划分）
+        120GB ubuntu home
+        120GB kali 根
+        约等于你RAM大小 swap 交换分区
+        剩余拿来日常装点别的东西
+    两个系统安装时都选择手动分区
+    装ubuntu的时候，先从u盘启动镜像，直接在ubuntu里做分区就好
+    之后在kali安装时，一定记好不要安装到已经安装了ubuntu的分区里。后边安装程序会要求你选择交换分区，回到分区程序，点开swap分区，把「用于」那一项改成「交换分区」就好 (注意，ubuntu似乎不会自动使用该分区，它会自动建立一个swap文件，想用分区的话需要后边手动更改，详情请自行搜索）
+    kali切记不要安装grub(不过似乎装了也没啥事）
+    之后应该能从grub进入ubuntu，运行一下'''sudo grub-update'''就能把kali挂进grub
+    如果你的grub是kali的grub（启动菜单第一位应该是kali），是可以在ubuntu里再安装一遍grub的  https://chatgpt.com/share/68553486-021c-800d-8b37-b78d027b086a（ubuntu的grub更耐造）
