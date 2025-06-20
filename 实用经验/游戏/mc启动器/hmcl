@@ -1,0 +1,6 @@
+###2.deb等操作系统可用的mc起动器hmcl安装和配置教程（2025需对内容稍加修改）###
+    https://blog.csdn.net/Mono_phobia/article/details/127597485
+    **当使用jre8软件包时会报错说javaFX已经从JDK8中移除
+    **你可以下载jdk11以上的jdk包，用dpkg安装后（一般自动就设置好环境变量了，在终端用java --version命令检查当前版本），打开终端
+    **在终端中输入chmod +x [你下载的hmcl.sh所在位置]
+    **然后./[你的hmcl.sh所在位置]直接运行（当然，这里推荐你做一个.desktop文件放在桌面更方便使用，详情请问AI）
