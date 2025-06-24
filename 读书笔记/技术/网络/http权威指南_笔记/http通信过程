@@ -2,6 +2,9 @@
 ##假设你要在浏览器上搜索 三角洲行动
     1.你的浏览器建立搜索引擎url(假如是谷歌） https://www.google.com.hk/search?q=%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8&oq=%E4%B8%89%E8%A7%92%E6%B4%B2%E8%A1%8C%E5%8A%A8&gs_lcrp=EgZjaHJvbWUqCggAEAAY4wIYgAQyCggAEAAY4wIYgAQyBwgBEC4YgAQyBwgCEAAYgAQyBwgDEAAYgAQyBwgEEAAYgAQyBwgFEAAYgAQyBwgGEAAYgAQyBwgHEAAYgAQyBwgIEAAYgAQyBwgJEAAYgATSAQg0NTIwajBqN6gCALACAA&sourceid=chrome&ie=UTF-8
        url结构请参考本书第2章 URL与资源开头 |方案类型|三级域名.二级域名.顶级域名|资源路径是search| ?是字符串查询分隔符|q是参数|%用来表示一些编码，一些不好做开发的字符比如中文(详情请搜索），可以用%来编码|后边一大堆就是各种参数了|
-       自写url: http://omg.isOrange.oh.my.god/whatcanido
+       每个url中的路径组件都可以带上参数，比如http://a.b.c:114/a;param=1&param2=2/b;param=2?q=w每个参数与路径字符都用;分隔开，每个路径后附带的多个间参数间用&隔开。域名:后边跟着的是端口号，指定了服务器上运行的软件服务的位置
+       总体格式<scheme>://<user>:<password>@<host>:<port>/<path>; <params>? <query>#<frag>，其中frag是用来选取片段的，其用#标识，这会让整个http事务向服务端请求来完整数据后，由浏览器切割数据，选取你frag标识的片段来给你看。
+       现代浏览器一般会对你给出的url进行扩展，比如你输入bing.com,会自动扩展为https://www.bing.com，这个扩展链接还会随着你的地理位置不同，而智能匹配合适的url来进行扩展, 比如我的浏览器会把bing.com扩展为https://cn.bing.com
 
-  累了，明天续写
+    2.浏览器已经做好了url，开始连入url指定的位置
+        浏览器先识别域名，连入DNS服务器，把域名丢给它看。DNS服务器处理后把IP地址丢回来。浏览器再连入这个IP。每次tcp连入都会通过三次握手（SYN,SYN/ACK,ACK）来建立牢固连接，防止丢失数据。每次断连都会有四次挥手（FIN_1,ACK,FIN_2,ACK）
