@@ -1,0 +1,2 @@
+在使用grep时发现linux中参数扩展行为，解释了一大堆为啥ls | grep 参数  会导致grep不输出ls中的内容，反而输出文件内信息
+    https://chatgpt.com/share/68688f63-4d08-800d-b9a4-a6704542060b
